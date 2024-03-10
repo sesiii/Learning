@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NGO Management</title>
+    <style>
+        .flashes {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to the NGO Management APP!</h1>
+
+    <!-- Display flashed messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            <script>showMessage();</script>
+        {% endif %}
+    {% endwith %}
+
+    <a href="/create_student">Create a new student</a>
+    <a href="/students">View all students</a>
+    
+    <!-- Add more links for other options -->
+
+    <script>
+        function showMessage() {
+            var messageDiv = document.querySelector('.flashes');
+            messageDiv.style.display = 'block';
+        
+            setTimeout(function() {
+                messageDiv.style.display = 'none';
+            }, 5000);  // Hide the message after 5 seconds
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Profile</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .edit-icon {
+            position: relative;
+        }
+
+        .edit-icon::after {
+            content: "\f044";
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            right: -20px;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Student Profile</h1>
+
+    <img src="https://avatars.dicebear.com/api/human/{{ student.id }}.svg" alt="Profile Picture">
+
+    <p>Name: {{ student.name }}</p>
+    <p>Age: {{ student.age }}</p>
+    <p>School: {{ student.school }}</p>
+    <p>Parental Income: {{ student.parental_income }}</p>
+    <p>Help Type: {{ student.help_type }}</p>
+
+    <!-- <button id="updateButton">Update Profile</button> -->
+
+
+
+    <a href="/students">Back to Students List</a>
+
+  
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Student</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Update Student</h1>
+
+    <form id="updateForm" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="{{ student.name }}"><br>
+        <label for="age">Age:</label><br>
+        <input type="text" id="age" name="age" value="{{ student.age }}"><br>
+        <label for="school">School:</label><br>
+        <input type="text" id="school" name="school" value="{{ student.school }}"><br>
+        <label for="parental_income">Parental Income:</label><br>
+        <input type="text" id="parental_income" name="parental_income" value="{{ student.parental_income }}"><br>
+        <label for="help_type">Help Type:</label><br>
+        <input type="text" id="help_type" name="help_type" value="{{ student.help_type }}"><br>
+        <input type="submit" value="Update">
+    </form>
+
+    <a href="/students">Back to Students List</a>
+
+    <script>
+        $('#updateForm').submit(function(e) {
+            e.preventDefault();
+
+            // Send POST request
+            $.ajax({
+                url: '/students/' + {{ student.id }} + '/update',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    alert(response.message);
+                    window.location.href = '/students';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
